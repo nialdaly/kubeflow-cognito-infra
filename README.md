@@ -27,7 +27,7 @@ Any Stacks created as part of the CDK App can be deleted using the following com
 cdk destroy --all
 ```
 
-## Additional Resources
+## Additional Resources
 - [CDK Documentation](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/index.html)
 - [CDK with Python](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-python.html)
 - [AWS CDK Examples](https://github.com/aws-samples/aws-cdk-examples)
