@@ -1,58 +1,34 @@
+# Kubeflow Cognito Infrastructure
+The following project demonstrates the process of deploying the infrastructure needed for a Kubeflow deployment on Amazon Elastic Kubernetes Service (EKS). This project makes use of the AWS Cloud Development Kit (CDK), an open source software development framework that supports cloud application resources development using programming languages like Python, Java and TypeScript. This project defines the CDK Stacks and App using Python.
 
-# Welcome to your CDK Python project!
+## Prerequisites
+- [AWS access key ID and secret access key](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html)
+- [awscli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) (v1.18.179)
+- [pip](https://pip.pypa.io/en/stable/installing/)
+- [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html#via-pip)
+- [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/work-with.html#work-with-prerequisites)
 
-This is a blank project for Python development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
-
-To manually create a virtualenv on MacOS and Linux:
-
+## 1. CDK Environment Setup
+To setup a Python-based CDK environment, the following [guide](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-python.html) is especially useful. Once the virtual enviroment is set up, the AWS Construct Library modules dependencies needed can be installed using the `requirements.txt` file like so:
 ```
-$ python3 -m venv .venv
+python -m pip install -r requirements.txt
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
+## 2. Deploy CDK Stacks
+The `cognito_stack.py` file 
+To deploy the CDK Stacks that have been defined, run the following command:
 ```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
+cdk deploy --all
 ```
 
-Once the virtualenv is activated, you can install the required dependencies.
-
+## 3. Resource Cleanup
+Any Stacks created as part of the CDK App can be deleted using the following command:
 ```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
+cdk destroy --all
 ```
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
+## Additional Resources
+- [CDK Documentation](https://docs.aws.amazon.com/cdk/api/latest/typescript/api/index.html)
+- [CDK with Python](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-python.html)
+- [AWS CDK Examples](https://github.com/aws-samples/aws-cdk-examples)
+- [Accessing SSM parameters with CDK](https://docs.aws.amazon.com/cdk/latest/guide/get_ssm_value.html)
